@@ -1,0 +1,15 @@
+.folder-view{
+    margin: 0 auto;
+    width: 80%;
+    min-width: 400px;
+    min-height: 600px;
+    height: 90%;
+    border: 2px solid black;
+    border-radius: 20px;
+    display: flex;
+}
+
+.wrapper{
+    height: 100vh;
+    padding: 100px 50px 50px;
+}

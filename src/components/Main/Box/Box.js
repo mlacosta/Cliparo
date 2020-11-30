@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {useAppContext} from '../../AppCtx/AppCtx';
 /*import {FaBeer } from 'react-icons/ai';*/
 import './Box.css';
+import {Link} from "react-router-dom";
 
 export default function Box({create, name, onClick }){
 	
@@ -24,10 +25,17 @@ export default function Box({create, name, onClick }){
 	}
 	
 	return(
-	
-			<div className="Box" style={box} onClick = {onClick}>
-				{!create && <h3 style={title}>Create New folder</h3>}
-				{ create && <h3 style={title}>{name}</h3>	 }
-				{/*<AiOutlinePlusCircle ></AiOutlinePlusCircle >*/}
-			</div>)
+		<>
+			{!create &&<div className="Box" style={box} onClick = {onClick}>
+				 			<h3 style={title}>Create New folder</h3>
+					   </div>
+			}
+			{ create && <Link to={`${name}`} style={{textDecoration: 'none'}}>
+							<div className="Box" style={box} onClick = {onClick}>
+								<h3 style={title}>{name}</h3>	 
+							</div>
+						</Link>
+			}
+		</>
+)
 }

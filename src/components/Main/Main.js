@@ -5,7 +5,12 @@ import ClipLoader from "react-spinners/ClipLoader";
 import './Main.css';
 import Modal from './../Modal/Modal';
 
-let folders = [{name:'Fullstack'},{name:'Big Data'},{name: 'Music Production'}]
+let folders = [{name:'Fullstack',
+				links: ['https://redux.js.org/','https://www.freecodecamp.org/news/async-await-javascript-tutorial/','https://www.freecodecamp.org/news/designing-a-website-ui-with-prototyping/']},
+			   {name:'Big Data',
+			   links: ['https://redux.js.org/','https://www.freecodecamp.org/news/async-await-javascript-tutorial/','https://www.freecodecamp.org/news/designing-a-website-ui-with-prototyping/']},
+			   {name: 'Music Production',
+			   links: ['https://redux.js.org/','https://youtu.be/VabSfLWISr4','https://www.freecodecamp.org/news/async-await-javascript-tutorial/','https://www.freecodecamp.org/news/designing-a-website-ui-with-prototyping/']}]
 
 let request = new Promise(
   (res,rej)=>{
@@ -16,7 +21,7 @@ let request = new Promise(
 export default function Main(){
 	const {colors} = useAppContext();
 
-	let [folder, setFolder] =  useState([]);
+	let {folder, setFolder} =  useAppContext();
 	let [loading, setLoading] =  useState(true);
 	let [showModal,setModal] = useState(false);
 

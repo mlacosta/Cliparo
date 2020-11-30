@@ -1,4 +1,4 @@
-import React from 'react';
+import React , {useState} from 'react';
 
 const colors = {
 	background:'white',
@@ -11,8 +11,11 @@ const AppContext = React.createContext();
 export const useAppContext = ()=>{return React.useContext(AppContext)};
 
 export default function AppCtx({children}){
+
+	let [folder, setFolder] =  useState([]);
+
 	return(<>
-				<AppContext.Provider value = {{colors}}>
+				<AppContext.Provider value = {{colors,folder, setFolder}}>
 					{children}
 				</AppContext.Provider>
 			</>)
