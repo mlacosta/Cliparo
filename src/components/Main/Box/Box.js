@@ -11,7 +11,7 @@ export default function Box({create, name, onClick }){
 	const box = {
 		height: 240,
 		width: 200,
-		border: `1px solid gray`,
+		border: `1px ${create ? 'solid' :'dashed'} gray`,
 		borderRadius:'10px',
 		margin:50,
 		padding:10
@@ -21,7 +21,7 @@ export default function Box({create, name, onClick }){
 		color:colors.text02,
 		textAlign:'center',
 		fontSize:'2rem',
-		fontWeight:300
+		fontWeight:create ? 700 : 300
 	}
 	
 	return(

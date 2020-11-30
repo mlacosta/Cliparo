@@ -55,7 +55,7 @@ export default function Main(){
 
 	const handleCreateFolder = (value)=>{
 		return ()=>{
-			setFolder([...folder,{name:value}]);
+			setFolder([...folder,{name:value, links:[]}]);
 			setModal(false);
 		}
 		
