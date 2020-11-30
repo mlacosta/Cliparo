@@ -1,6 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import {useAppContext} from '../AppCtx/AppCtx';
 import Box from './Box/Box';
+import ClipLoader from "react-spinners/ClipLoader";
+import './Main.css';
+import Modal from './../Modal/Modal';
 
 let folders = [{name:'Fullstack'},{name:'Big Data'},{name: 'Music Production'}]
 
@@ -15,6 +18,7 @@ export default function Main(){
 
 	let [folder, setFolder] =  useState([]);
 	let [loading, setLoading] =  useState(true);
+	let [showModal,setModal] = useState(false);
 
 	useEffect(()=>{
 
@@ -41,10 +45,34 @@ export default function Main(){
 		display:'flex'
 	}
 
+	
+	const handleCreate = ()=>{
+		setModal(true);
+	}
+
+	const handleClose = ()=>{
+		setModal(false);
+	}
+
+	const handleCreateFolder = (value)=>{
+		return ()=>{
+			setFolder([...folder,{name:value}]);
+			setModal(false);
+		}
+		
+	}
+
 	return(<div className="main" style={main}>
-				<h1 style={title}>Cliparo</h1>
-				<Box create={false}></Box>
-				{!loading && folder.map((value)=>{return <Box create = {true} name = {value["name"]}></Box>}) }
-				{loading && <div>Loading...</div>}
+				<h1 className='main-title'style={title}>Cliparo</h1>
+				<h2>Save all your favourite web resources in one page!</h2>
+				
+				<div className="box-container">
+				{loading && <ClipLoader color={colors.spinner} size={60} css='margin-top:150px;'/>}
+				{!loading && <Box create={false} onClick={handleCreate}/>}
+				{folder.map((value)=>{return <Box create = {true} name = {value["name"]}/>}) }
+				
+				</div>
+				{showModal && <Modal onClose = {handleClose} onCreate = {handleCreateFolder}/>}
+
 			</div>)
 }

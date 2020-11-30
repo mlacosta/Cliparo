@@ -1,9 +1,10 @@
 import React from 'react';
 
 const colors = {
-	background:'#6930c3',
-	text: '#48bfe3',
-	text02: '#72efdd'
+	background:'white',
+	text: '#006466',
+	text02: '#006466',
+	spinner:'#3e1f47'
 }
   
 const AppContext = React.createContext();

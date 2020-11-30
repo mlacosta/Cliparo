@@ -3,14 +3,14 @@ import {useAppContext} from '../../AppCtx/AppCtx';
 /*import {FaBeer } from 'react-icons/ai';*/
 import './Box.css';
 
-export default function Box({create, name }){
+export default function Box({create, name, onClick }){
 	
 	const {colors} = useAppContext();
 
 	const box = {
 		height: 240,
 		width: 200,
-		border: `2px solid white`,
+		border: `2px solid black`,
 		borderRadius:'20px',
 		margin:50,
 		padding:10
@@ -25,7 +25,7 @@ export default function Box({create, name }){
 	
 	return(
 	
-			<div className="Box" style={box}>
+			<div className="Box" style={box} onClick = {onClick}>
 				{!create && <h3 style={title}>Create New folder</h3>}
 				{ create && <h3 style={title}>{name}</h3>	 }
 				{/*<AiOutlinePlusCircle ></AiOutlinePlusCircle >*/}
