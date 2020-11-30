@@ -11,8 +11,8 @@ export default function Box({create, name, onClick }){
 	const box = {
 		height: 240,
 		width: 200,
-		border: `2px solid black`,
-		borderRadius:'20px',
+		border: `1px solid gray`,
+		borderRadius:'10px',
 		margin:50,
 		padding:10
 	}

@@ -4,10 +4,9 @@ import React from 'react';
 export default function Sidebar(){
 
 	const sidebar = {
-		width:'40%',
+		width:'20%',
 		height:'100%',
 		backgroundColor:'orange',
-		borderRadius:'15px 0 0 15px'
 	}
 
 	return(

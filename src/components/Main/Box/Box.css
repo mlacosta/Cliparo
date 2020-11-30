@@ -1,7 +1,9 @@
 .Box{
     cursor: pointer;
+    background-color: white;
 }
 
 .Box:hover{
-    background-color: rgba(0,0,0,.3);
+    background-color: rgba(0,0,0,.13);
+    transition: .3s;
 }

@@ -10,7 +10,7 @@ export default function Viewer(){
 	
 	const viewer = {
 		overflow:'auto',
-		width:'60%'
+		width:'80%'
 	}
 
 	return(<div className="viewer" style={viewer}>
