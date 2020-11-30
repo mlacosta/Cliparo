@@ -7,7 +7,7 @@ let folders = [
                         'https://www.freecodecamp.org/news/designing-a-website-ui-with-prototyping/']
                 },
 			    {name:'Big Data',
-                 links: ['https://redux.js.org/',
+                 links: ['https://www.infoworld.com/article/3278008/what-is-tensorflow-the-machine-learning-library-explained.html',
                          'https://www.freecodecamp.org/news/async-await-javascript-tutorial/',
                          'https://www.freecodecamp.org/news/designing-a-website-ui-with-prototyping/']
                 },

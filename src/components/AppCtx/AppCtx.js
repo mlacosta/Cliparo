@@ -1,7 +1,7 @@
 import React , {useState} from 'react';
 
 const colors = {
-	background:'white',
+	background:'#764abc',
 	text: '#006466',
 	text02: '#006466',
 	spinner:'#3e1f47'

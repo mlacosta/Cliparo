@@ -10,7 +10,7 @@ import { HashRouter as Router, Switch,Route,Link} from "react-router-dom";
 function App() {
 
   const title = {
-		color: "#006466",
+		color: "white",
 		margin:0,
 		textAlign:'center',
 		fontSize:'4rem',

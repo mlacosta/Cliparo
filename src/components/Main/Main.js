@@ -38,7 +38,7 @@ export default function Main(){
 	}
 
 	const main = {
-		backgroundColor: "f3f2ef",
+		backgroundColor: "#764abc",
 		height:'100vh',
 		margin:0,
 		display:'flex'
