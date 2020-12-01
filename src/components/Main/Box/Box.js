@@ -19,7 +19,6 @@ export default function Box({create, name, onClick }){
 	}
 
 	const title = {
-		color:colors.text02,
 		textAlign:'center',
 		fontSize:'2rem',
 		fontWeight:create ? 700 : 300

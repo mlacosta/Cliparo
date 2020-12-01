@@ -8,12 +8,12 @@ import { HashRouter as Router, Switch,Route,Link} from "react-router-dom";
 import background from './img/background_04.jpg';
 
 function App() {
-
+  
   const title = {
-		color: "white",
+		color: "orange",
 		margin:0,
 		textAlign:'center',
-		fontSize:'4rem',
+		fontSize:'4.3rem',
 		padding: 20
   }
   
@@ -28,7 +28,7 @@ function App() {
     <div className="app-wrapper" style = {style}>
       <Router>
         <AppCtx>
-          <h1 className='main-title'style={title}>Cliparo</h1>
+          <i><h1 className='main-title'style={title}> Cliparo</h1></i> 
           <Switch>
             <Route exact path='/'>
               <Main/>

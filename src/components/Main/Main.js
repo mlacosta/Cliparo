@@ -44,7 +44,6 @@ export default function Main(){
 		
 	}
 
-	
 	const handleCreate = ()=>{
 		setModal(true);
 	}
@@ -57,14 +56,11 @@ export default function Main(){
 		return ()=>{
 			setFolder([...folder,{name:value, subfolders:[]}]);
 			setModal(false);
-		}
-		
+		}		
 	}
 
-	
-
 	return(<div className="main" style={main}>
-				<h2>Save all your favourite web resources in one page!</h2>
+				<h2 style={{ color: 'white' }}>Save all your favourite web resources in one page!</h2>
 				<div className="box-container">
 				{loading && <ClipLoader color={colors.spinner} size={60} css='margin-top:150px;'/>}
 				{!loading && <Box create={false} onClick={handleCreate}/>}

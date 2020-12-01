@@ -11,7 +11,8 @@ export default function AddUrl({ onAdd }){
 		top:-10,
 		backgroundColor:'black',
 		padding:4,
-		width:120
+		width:120,
+		cursor:'pointer'
 	}
 
 	const add = {

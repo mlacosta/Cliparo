@@ -26,13 +26,32 @@ export default function AppCtx({children}){
 		
 	}
 
+	const addSubfolder = (name,subName)=>{
+		const index = folder.findIndex((value)=>{return value["name"] == name});
+		let temp = [...folder];
+		temp[index]["subfolders"].push({name:subName,links:[]});
+		setFolder(temp);
+	}
+
+	const addLink = (name,subName,url)=>{
+		const index = folder.findIndex((value)=>{return value["name"] == name});
+		const subIndex = folder[index]['subfolders'].findIndex((value)=>{return value["name"] == subName});
+
+		let temp = [...folder];
+
+		temp[index]["subfolders"][subIndex]["links"].unshift(url);
+		setFolder(temp);
+	}
+
 	const context = {colors, 
 					 folder, 
 					 setFolder, 
 					 queryFolder, 
 					 subfolders, 
 					 currentFolder, 
-					 setCurrentFolder}
+					 setCurrentFolder,
+					 addSubfolder,
+					 addLink}
 
 	return(<>
 				<AppContext.Provider value = {context}>
