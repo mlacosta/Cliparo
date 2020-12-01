@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { useAppContext } from '../../AppCtx/AppCtx';
 
 
-export default function Sidebar(){
+export default function Sidebar({ onCreate}){
 
 	const {resource} = useParams();
 	const { folder, subfolders , setCurrentFolder} = useAppContext();
@@ -23,7 +23,8 @@ export default function Sidebar(){
 
 	return(
 		<div className="sidebar" style={sidebar}>
-			<Sidebox create={true} onClick = {()=>{}}/>
+			
+			<Sidebox create={true} onClick = {onCreate}/>
 			{subfolders.map((value)=>{return <Sidebox create={false} name={value.name} onClick = {handleSelect}/>})}
 		</div>
 	)

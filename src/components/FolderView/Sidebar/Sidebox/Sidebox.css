@@ -4,6 +4,7 @@
     border: thin solid black;
     display: inline-block;
     position: relative;
+    cursor: pointer;
     
 }
 

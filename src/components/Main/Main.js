@@ -6,6 +6,7 @@ import './Main.css';
 import Modal from './../Modal/Modal';
 import folders from './folders'
 
+
 let request = new Promise(
   (res,rej)=>{
     setTimeout(()=>{res(folders)},1500)
@@ -37,10 +38,10 @@ export default function Main(){
 	}
 
 	const main = {
-		backgroundColor: "#764abc",
 		height:'100vh',
 		margin:0,
-		display:'flex'
+		display:'flex',
+		
 	}
 
 	

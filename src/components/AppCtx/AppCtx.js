@@ -4,7 +4,7 @@ const colors = {
 	background:'#764abc',
 	text: '#006466',
 	text02: '#006466',
-	spinner:'#3e1f47'
+	spinner:'white'
 }
   
 const AppContext = React.createContext();
