@@ -33,9 +33,9 @@ export default function AppCtx({children}){
 		setFolder(temp);
 	}
 
-	const addLink = (name,subName,url)=>{
+	const addLink = (name,url)=>{
 		const index = folder.findIndex((value)=>{return value["name"] == name});
-		const subIndex = folder[index]['subfolders'].findIndex((value)=>{return value["name"] == subName});
+		const subIndex = folder[index]['subfolders'].findIndex((value)=>{return value["name"] == currentFolder});
 
 		let temp = [...folder];
 

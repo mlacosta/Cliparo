@@ -47,7 +47,7 @@ export default function FolderView(){
 
 	const handleAddUrl = (url)=>{
 		return ()=>{
-			addLink(resource,currentFolder,url);
+			addLink(resource,url);
 			setModal(false);
 		}
 	}
