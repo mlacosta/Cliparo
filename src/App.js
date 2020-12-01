@@ -22,7 +22,6 @@ function App() {
     <Router>
       <AppCtx>
         <h1 className='main-title'style={title}>Cliparo</h1>
-				<h2>Save all your favourite web resources in one page!</h2>
         <Switch>
           <Route exact path='/'>
             <Main/>

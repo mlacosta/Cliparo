@@ -62,7 +62,7 @@ export default function Main(){
 	}
 
 	return(<div className="main" style={main}>
-
+				<h2>Save all your favourite web resources in one page!</h2>
 				<div className="box-container">
 				{loading && <ClipLoader color={colors.spinner} size={60} css='margin-top:150px;'/>}
 				{!loading && <Box create={false} onClick={handleCreate}/>}

@@ -1,16 +1,55 @@
 .folder-view{
-    margin: 0 auto;
-    width: 80%;
-    min-width: 400px;
-    min-height: 600px;
-    height: 80%;
+
     border: 1px solid gray;
     display: flex;
     background-color: white;
+    height: 80vh;
+    
+}
+
+.view-wrapper{
+    position: relative;
+    margin: -50px auto;
+    width: 80%;
+    min-width: 400px;
+    min-height: 600px;
+    height: 70%;
     z-index: 100;
+    padding: 0;
+}
+
+.name{
+    width: 100px;
+    height: 30px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1px;
+    border-radius: 0 10px 0 0;
+    font-weight: 700;
 }
 
 .wrapper{
-    height: 100vh;
+    height: 80vh;
     padding: 50px;
 }
+
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
