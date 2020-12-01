@@ -15,12 +15,11 @@ let request = new Promise(
 export default function Main(){
 	const {colors} = useAppContext();
 
-	let {folder, setFolder} =  useAppContext();
+	let {folder, setFolder, queryFolder} =  useAppContext();
 	let [loading, setLoading] =  useState(true);
 	let [showModal,setModal] = useState(false);
 
 	useEffect(()=>{
-
 	  request.then((res)=>{
 		  setFolder(res)
 		  setLoading(false);
@@ -55,18 +54,20 @@ export default function Main(){
 
 	const handleCreateFolder = (value)=>{
 		return ()=>{
-			setFolder([...folder,{name:value, links:[]}]);
+			setFolder([...folder,{name:value, subfolders:[]}]);
 			setModal(false);
 		}
 		
 	}
+
+	
 
 	return(<div className="main" style={main}>
 				<h2>Save all your favourite web resources in one page!</h2>
 				<div className="box-container">
 				{loading && <ClipLoader color={colors.spinner} size={60} css='margin-top:150px;'/>}
 				{!loading && <Box create={false} onClick={handleCreate}/>}
-				{folder.map((value)=>{return <Box create = {true} name = {value["name"]}/>}) }
+				{folder.map((value)=>{return <Box create = {true} name = {value["name"]} onClick = {queryFolder(value["name"])}/>}) }
 				
 				</div>
 				{showModal && <Modal onClose = {handleClose} onCreate = {handleCreateFolder}/>}

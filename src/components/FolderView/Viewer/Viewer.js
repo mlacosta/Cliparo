@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { ReactTinyLink } from 'react-tiny-link';
-import {useParams} from 'react-router-dom';
-import {useAppContext} from '../../AppCtx/AppCtx';
+import { useParams } from 'react-router-dom';
+import { useAppContext } from '../../AppCtx/AppCtx';
 
 export default function Viewer(){
-	const {folder} =  useAppContext();
+	const {folder, subfolders, currentFolder} =  useAppContext();
 	let {resource} = useParams();
-	let links =  folder.find ((value)=>{return value.name == resource}).links;
+	let [links,setLinks] = useState([]);
+	
+	useEffect(()=>{
+		setLinks(subfolders.find((value)=>{return value.name == currentFolder}).links);
+	},[currentFolder])	
+
 	
 	const viewer = {
 		overflow:'auto',

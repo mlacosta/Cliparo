@@ -1,0 +1,14 @@
+.sidebox{
+    width: 100%;
+    height: 50px;
+    border: thin solid black;
+    display: inline-block;
+    position: relative;
+    
+}
+
+.description{
+    position: absolute;
+    top:15px;
+    font-weight:500;
+}
