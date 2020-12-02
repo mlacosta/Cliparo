@@ -15,7 +15,7 @@ export default function Sidebox({ create, name , onClick}){
 	}
 
 	const box = {
-		backgroundColor: selected ? 'lightblue' : 'white',
+		backgroundColor: selected ? 'lightgray' : 'white',
 	}
 
 	const style = {

@@ -1,4 +1,5 @@
 import React , {useState} from 'react';
+import axios from 'axios';
 
 const colors = {
 	background:'#764abc',
@@ -13,45 +14,51 @@ export const useAppContext = ()=>{return React.useContext(AppContext)};
 
 export default function AppCtx({children}){
 
-	let [folder, setFolder] =  useState([]);
 	let [subfolders, setSubfolders] = useState([]);
-	let  [currentFolder, setCurrentFolder] = useState('');
+	let [currentFolder, setCurrentFolder] = useState('');
+	let [folderNames, setNames] = useState([]);
+	let [links,setLinks] = useState([]);
 
-	const queryFolder = (name)=>{	
-		return ()=>{
-			let search = folder.find((value)=>{return value.name == name})['subfolders'];
+	const queryFolder =  (name)=>{	
+		return async ()=>{
+			/*let search = folder.find((value)=>{return value.name == name})['subfolders'];
 			setSubfolders(search);
-			setCurrentFolder(search[0]["name"]);
+			setCurrentFolder(search[0]["name"]);*/
+
+			await fetch(`/subfolders/${name}`).then( res =>{return res.json()}).then((res)=>{
+				setSubfolders(res["subfolders"]);
+			
+			})
+			
 		}
-		
 	}
 
 	const addSubfolder = (name,subName)=>{
-		const index = folder.findIndex((value)=>{return value["name"] == name});
+		/*const index = folder.findIndex((value)=>{return value["name"] == name});
 		let temp = [...folder];
 		temp[index]["subfolders"].push({name:subName,links:[]});
-		setFolder(temp);
+		setFolder(temp);*/
 	}
 
 	const addLink = (name,url)=>{
-		const index = folder.findIndex((value)=>{return value["name"] == name});
+		/*const index = folder.findIndex((value)=>{return value["name"] == name});
 		const subIndex = folder[index]['subfolders'].findIndex((value)=>{return value["name"] == currentFolder});
-
 		let temp = [...folder];
-
 		temp[index]["subfolders"][subIndex]["links"].unshift(url);
-		setFolder(temp);
+		setFolder(temp);*/
 	}
 
 	const context = {colors, 
-					 folder, 
-					 setFolder, 
 					 queryFolder, 
 					 subfolders, 
 					 currentFolder, 
 					 setCurrentFolder,
 					 addSubfolder,
-					 addLink}
+					 addLink,
+					 setNames,
+					 folderNames,
+					 links,
+				     setLinks}
 
 	return(<>
 				<AppContext.Provider value = {context}>

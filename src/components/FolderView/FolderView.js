@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Sidebar from './Sidebar/Sidebar';
 import Viewer from './Viewer/Viewer';
 import './FolderView.css';
@@ -11,7 +11,7 @@ import { BsInfoSquareFill } from 'react-icons/bs';
 
 export default function FolderView(){
 	
-	const {colors, folder, addSubfolder, addLink, currentFolder} = useAppContext();
+	const {colors, addSubfolder, addLink, setLinks, subfolders, currentFolder} = useAppContext();
 	const {resource} = useParams();
 	const [modal,setModal] = useState(false);
 	const [isUrl, setIsUrl] = useState(false);
@@ -51,6 +51,14 @@ export default function FolderView(){
 			setModal(false);
 		}
 	}
+
+	useEffect(()=>{
+		try{
+			setLinks(subfolders.find(value=>{return value.name == currentFolder}).links);
+		}catch(err){
+			setLinks([])
+		}
+	},[currentFolder]);
 
 	return(
 		<div className="wrapper">

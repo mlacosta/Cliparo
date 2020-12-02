@@ -4,12 +4,12 @@ import { useParams } from 'react-router-dom';
 import { useAppContext } from '../../AppCtx/AppCtx';
 
 export default function Viewer(){
-	const {folder, subfolders, currentFolder} =  useAppContext();
+	const {subfolders, currentFolder, links, setLinks, setCurrentFolder, queryFolder} =  useAppContext();
 	let {resource} = useParams();
-	let [links,setLinks] = useState([]);
+	
 	
 	useEffect(()=>{
-		setLinks(subfolders.find((value)=>{return value.name == currentFolder}).links);
+		
 	},[currentFolder])	
 
 	

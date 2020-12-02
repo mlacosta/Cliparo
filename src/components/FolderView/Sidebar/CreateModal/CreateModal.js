@@ -13,7 +13,7 @@ export default function CreateModal( { onCreate, onClose, addUrl }){
 				<div className="form">
 					{addUrl ? 'Paste the URL' : 'Folder Name:'}
 					<input className='folder-name'type="text" onChange = {(evnt)=>{setName(evnt.target.value)}} style={input}/><br/>
-					<button className='create' onClick={onCreate(name)}>{addUrl ? 'Add URL' : 'Create Folder:'}</button>
+					<button className='create' onClick={onCreate(name)}>{addUrl ? 'Add URL' : 'Create Folder'}</button>
 				</div>
 			</div>
 		</div>

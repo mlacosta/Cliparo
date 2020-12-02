@@ -5,7 +5,7 @@ import ClipLoader from "react-spinners/ClipLoader";
 import './Main.css';
 import Modal from './../Modal/Modal';
 import folders from './folders'
-
+import axios from 'axios';
 
 let request = new Promise(
   (res,rej)=>{
@@ -16,18 +16,24 @@ let request = new Promise(
 export default function Main(){
 	const {colors} = useAppContext();
 
-	let {folder, setFolder, queryFolder} =  useAppContext();
+	let {folder, setFolder, queryFolder, setNames, folderNames, setCurrentFolder, subfolders } =  useAppContext();
 	let [loading, setLoading] =  useState(true);
 	let [showModal,setModal] = useState(false);
 
+	const getFolders = ()=>{
+		fetch('/folders').then((res)=>{
+			return res.json()
+		  }).then(res=>{
+			  setNames(res["folders"]);
+			  setLoading(false);
+		   })
+	}
+
 	useEffect(()=>{
-	  request.then((res)=>{
-		  setFolder(res)
-		  setLoading(false);
-		}
-	  )
-  
-	},[])
+	  
+		getFolders();
+
+	},[showModal])
 
 	const title = {
 		color: colors.text,
@@ -54,17 +60,18 @@ export default function Main(){
 
 	const handleCreateFolder = (value)=>{
 		return ()=>{
-			setFolder([...folder,{name:value, subfolders:[]}]);
+			axios.post('/folders',{value});
 			setModal(false);
 		}		
 	}
+
 
 	return(<div className="main" style={main}>
 				<h2 style={{ color: 'white' }}>Save all your favourite web resources in one page!</h2>
 				<div className="box-container">
 				{loading && <ClipLoader color={colors.spinner} size={60} css='margin-top:150px;'/>}
 				{!loading && <Box create={false} onClick={handleCreate}/>}
-				{folder.map((value)=>{return <Box create = {true} name = {value["name"]} onClick = {queryFolder(value["name"])}/>}) }
+				{folderNames.map((value)=>{return <Box create = {true} name = {value} onClick = {queryFolder(value)}/>}) }
 				
 				</div>
 				{showModal && <Modal onClose = {handleClose} onCreate = {handleCreateFolder}/>}
