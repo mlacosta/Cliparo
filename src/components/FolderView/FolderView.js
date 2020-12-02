@@ -11,7 +11,7 @@ import { BsInfoSquareFill } from 'react-icons/bs';
 
 export default function FolderView(){
 	
-	const {colors, addSubfolder, addLink, setLinks, subfolders, currentFolder} = useAppContext();
+	const {colors, addSubfolder, addLink, setLinks, subfolders, currentFolder, setCurrentFolder} = useAppContext();
 	const {resource} = useParams();
 	const [modal,setModal] = useState(false);
 	const [isUrl, setIsUrl] = useState(false);
