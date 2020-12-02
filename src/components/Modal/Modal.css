@@ -12,7 +12,7 @@
     position: relative;
     border-radius: 20px;
     z-index: 15;
-    width: 40%;
+    width: 400px;
     height: 30%;
     background-color: black;
     margin: 300px auto;
@@ -26,6 +26,10 @@
     width: 40px;
     height: 40px;
     border-radius: 100%;
+    z-index:20;
+    cursor: pointer;
+    color:white;
+    background-color: black;
 }
 
 .form{

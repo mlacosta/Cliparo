@@ -23,7 +23,7 @@ subfolderRouter.post('/:foldername',(req,res)=>{
 		const index = folderData.findIndex((value)=>{return value["name"] == name});
         folderData[index]["subfolders"].push({name:subName,links:[]});
         console.log(folderData[index]["subfolders"])
-        res.json({subfolders: findFolders(name)})
+
 });
 
 module.exports = subfolderRouter;
