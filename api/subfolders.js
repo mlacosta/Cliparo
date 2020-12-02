@@ -1,28 +1,31 @@
 
 const express = require('express');
+let FolderDB =  require('./db.js');
 const subfolderRouter = express.Router();
-let folderData =require('./folder-data.js');
 
-let folders = ['Fullstack','Big Data', 'Music Production'];
+const findFolders = async (name)=>{
+    const result  = await FolderDB.findOne({name});
+    return result["subfolders"]
 
-const findFolders = (name)=>{
-    let index = folderData.findIndex((value)=>{return value["name"] == name})
-    return folderData[index]["subfolders"]
 }
 
-subfolderRouter.get('/:foldername',(req,res)=>{
+subfolderRouter.get('/:foldername', async(req,res)=>{
    let name = req.params.foldername;
-   console.log({subfolders: findFolders(name)});
-   res.json({subfolders: findFolders(name)})
+   let send = await findFolders(name)
+   console.log(send);
+   res.json({subfolders: send})
 });
 
-subfolderRouter.post('/:foldername',(req,res)=>{
+subfolderRouter.post('/:foldername',async (req,res)=>{
         let name = req.body["name"];
         let subName = req.body.subName;
         console.log(name);
-		const index = folderData.findIndex((value)=>{return value["name"] == name});
-        folderData[index]["subfolders"].push({name:subName,links:[]});
-        console.log(folderData[index]["subfolders"]);
+        const result  = await FolderDB.findOne({name});
+
+        result.subfolders.push({name:subName,links:[]})
+        
+        await result.save();
+        console.log(result);
         res.send('ok');
 });
 
