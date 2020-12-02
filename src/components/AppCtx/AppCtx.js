@@ -37,7 +37,7 @@ export default function AppCtx({children}){
 	}
 
 	const addLink = async (name,url)=>{
-		//await axios.post(`/link?folder=${name}&subfolder=${currentFolder}`,{url}).then(res=>{console.log(res)}).catch(err=>{console.log(err)});
+		await axios.post(`/link?folder=${name}&subfolder=${currentFolder}`,{url}).then(res=>{console.log(res)}).catch(err=>{console.log(err)});
 		await fetch(`/subfolders/${name}`).then( res =>{return res.json()}).then((res)=>{
 			setSubfolders(res["subfolders"]);
 		})
