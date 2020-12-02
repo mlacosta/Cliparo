@@ -5,7 +5,7 @@ import AppCtx from './components/AppCtx/AppCtx';
 import Main from './components/Main/Main';
 import FolderView from './components/FolderView/FolderView';
 import { HashRouter as Router, Switch,Route,Link} from "react-router-dom";
-import background from './img/background_04.jpg';
+import background from './img/background_01.jpg';
 
 function App() {
   
