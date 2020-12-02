@@ -21,10 +21,6 @@ export default function AppCtx({children}){
 
 	const queryFolder =  (name)=>{	
 		return async ()=>{
-			/*let search = folder.find((value)=>{return value.name == name})['subfolders'];
-			setSubfolders(search);
-			setCurrentFolder(search[0]["name"]);*/
-
 			await fetch(`/subfolders/${name}`).then( res =>{return res.json()}).then((res)=>{
 				setSubfolders(res["subfolders"]);
 			

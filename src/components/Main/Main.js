@@ -65,7 +65,6 @@ export default function Main(){
 		}		
 	}
 
-
 	return(<div className="main" style={main}>
 				<h2 style={{ color: 'white' }}>Save all your favourite web resources in one page!</h2>
 				<div className="box-container">

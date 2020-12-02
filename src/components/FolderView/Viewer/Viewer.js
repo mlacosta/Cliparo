@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { useAppContext } from '../../AppCtx/AppCtx';
 
 export default function Viewer(){
-	const {subfolders, currentFolder, links, setLinks, setCurrentFolder, queryFolder} =  useAppContext();
+	const {currentFolder, links} =  useAppContext();
 	let {resource} = useParams();
 	
 	

@@ -1,7 +1,7 @@
 
-import React ,{useState, useEffect} from 'react';
+import React from 'react';
 import './App.css';
-import AppCtx, {useAppContext} from './components/AppCtx/AppCtx';
+import AppCtx from './components/AppCtx/AppCtx';
 import Main from './components/Main/Main';
 import FolderView from './components/FolderView/FolderView';
 import { HashRouter as Router, Switch,Route,Link} from "react-router-dom";

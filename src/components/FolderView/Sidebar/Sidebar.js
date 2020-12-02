@@ -6,7 +6,7 @@ import { useAppContext } from '../../AppCtx/AppCtx';
 
 export default function Sidebar({ onCreate}){
 
-	const {subfolders , setCurrentFolder, setLinks, currentFolder} = useAppContext();
+	const {subfolders , setCurrentFolder} = useAppContext();
 
 	const sidebar = {
 		width:'20%',
