@@ -23,26 +23,29 @@ export default function AppCtx({children}){
 		return async ()=>{
 			await fetch(`/subfolders/${name}`).then( res =>{return res.json()}).then((res)=>{
 				setSubfolders(res["subfolders"]);
-			
 			})
-			
 		}
 	}
 
-	const addSubfolder = (name,subName)=>{
-		/*const index = folder.findIndex((value)=>{return value["name"] == name});
-		let temp = [...folder];
-		temp[index]["subfolders"].push({name:subName,links:[]});
-		setFolder(temp);*/
+	const addSubfolder = async (name,subName)=>{
+
+		await axios.post(`/subfolders/${name}`,{name,subName}).then(res=>{console.log(res)}).catch(err=>{console.log(err)});
+		await fetch(`/subfolders/${name}`).then( res =>{return res.json()}).then((res)=>{
+			setSubfolders(res["subfolders"]);
+		})
+
 	}
 
-	const addLink = (name,url)=>{
-		/*const index = folder.findIndex((value)=>{return value["name"] == name});
-		const subIndex = folder[index]['subfolders'].findIndex((value)=>{return value["name"] == currentFolder});
-		let temp = [...folder];
-		temp[index]["subfolders"][subIndex]["links"].unshift(url);
-		setFolder(temp);*/
+	const addLink = async (name,url)=>{
+		await axios.post(`/link?folder=${name}&subfolder=${currentFolder}`,{url}).then(res=>{console.log(res)}).catch(err=>{console.log(err)});
+
 	}
+
+	const getLinks = async (name)=>{
+		alert(name)
+		await fetch(`/link?folder=${name}&subfolder=${currentFolder}`).then(res=>{return res.json()}).then(res=>{setLinks(res['links'])}).catch(err=>{console.log(err)});
+	}
+
 
 	const context = {colors, 
 					 queryFolder, 
@@ -54,7 +57,8 @@ export default function AppCtx({children}){
 					 setNames,
 					 folderNames,
 					 links,
-				     setLinks}
+					 setLinks,
+					 getLinks}
 
 	return(<>
 				<AppContext.Provider value = {context}>

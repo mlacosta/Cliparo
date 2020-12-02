@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { ReactTinyLink } from 'react-tiny-link';
 import { useParams } from 'react-router-dom';
 import { useAppContext } from '../../AppCtx/AppCtx';
@@ -7,11 +7,6 @@ export default function Viewer(){
 	const {currentFolder, links} =  useAppContext();
 	let {resource} = useParams();
 	
-	
-	useEffect(()=>{
-		
-	},[currentFolder])	
-
 	
 	const viewer = {
 		overflow:'auto',

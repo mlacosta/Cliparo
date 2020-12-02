@@ -58,7 +58,7 @@ export default function FolderView(){
 		}catch(err){
 			setLinks([])
 		}
-	},[currentFolder]);
+	},[currentFolder,subfolders]);
 
 	return(
 		<div className="wrapper">

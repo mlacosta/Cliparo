@@ -1,12 +1,12 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import Sidebox from './Sidebox/Sidebox';
-import { useParams } from 'react-router-dom';
 import { useAppContext } from '../../AppCtx/AppCtx';
 
 
 export default function Sidebar({ onCreate}){
 
-	const {subfolders , setCurrentFolder} = useAppContext();
+	const {subfolders , setCurrentFolder, getLinks} = useAppContext();
+
 
 	const sidebar = {
 		width:'20%',
@@ -27,12 +27,12 @@ export default function Sidebar({ onCreate}){
 			console.log(err);
 		}
 		
-	},[subfolders]);
+	},[]);
 
 	return(
 		<div className="sidebar" style={sidebar}>
 			<Sidebox create={true} onClick = {onCreate}/>
-			{subfolders.map((value)=>{return <Sidebox create={false} name={value.name} onClick = {handleSelect}/>})}
+			{subfolders.map((value)=>{return value.name && <Sidebox create={false} name={value.name} onClick = {handleSelect}/>})}
 		</div>
 	)
 }

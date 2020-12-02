@@ -5,6 +5,7 @@ const errorHandler =  require('errorhandler');
 const morgan = require('morgan');
 const folderRouter = require('./api/folders');
 const subfolderRouter = require('./api/subfolders');
+const linkRouter = require('./api/links');
 const PORT = process.env.PORT || 4000;
 
 const app = express();
@@ -15,6 +16,7 @@ app.use(morgan('dev'));
 
 app.use('/folders',folderRouter);
 app.use('/subfolders',subfolderRouter);
+app.use('/link',linkRouter);
 app.use(errorHandler());
 
 app.listen(PORT,()=>{
