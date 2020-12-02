@@ -1,21 +1,32 @@
 const express = require('express');
 const folderRouter = express.Router();
+let FolderDB =  require('./db.js');
 
-let folderData = require('./folder-data.js');
+let folders = [];
 
-let folders = folderData.map(value=>{return value.name});
+folderRouter.get('/', async(req,res)=>{
 
-folderRouter.get('/',(req,res)=>{
-    folders = folderData.map(value=>{return value.name});
-    res.json({folders})
+    await FolderDB.find().then(
+        (doc)=>{
+            folders = doc.map((value)=>{return value.name});
+        }
+    );
+    
+    
+    res.json({folders});
 });
 
-folderRouter.post('/',(req,res)=>{
+folderRouter.post('/', async (req,res)=>{
+
     let newFolder = {
-        name:req.body["value"],
-        subfolders:[{name:'',links:[]}]
+            name:req.body["value"],
+            subfolders:[{name:'',links:[]}]
     }
-    folderData.push(newFolder)
+
+    let data = new FolderDB(newFolder);
+    await data.save();
+    
+    console.log(FolderDB);
     
     res.send('created')
 });
