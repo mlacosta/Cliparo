@@ -7,6 +7,8 @@ const morgan = require('morgan');
 const folderRouter = require('./api/folders');
 const subfolderRouter = require('./api/subfolders');
 const linkRouter = require('./api/links');
+const authRouter =  require('./api/auth');
+
 const PORT = process.env.PORT || 4000;
 
 
@@ -27,6 +29,7 @@ mongoose.connect('mongodb://localhost:27017/acmedb', {
     app.use('/folders',folderRouter);
     app.use('/subfolders',subfolderRouter);
     app.use('/link',linkRouter);
+    app.use('/auth',authRouter);
     app.use(errorHandler());
     
     app.listen(PORT,()=>{

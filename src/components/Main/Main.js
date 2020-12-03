@@ -6,6 +6,7 @@ import './Main.css';
 import Modal from './../Modal/Modal';
 import folders from './folders'
 import axios from 'axios';
+import Login from '../Login/Login';
 
 let request = new Promise(
   (res,rej)=>{
@@ -16,7 +17,7 @@ let request = new Promise(
 export default function Main(){
 	const {colors} = useAppContext();
 
-	let {folder, setFolder, queryFolder, setNames, folderNames, setCurrentFolder, subfolders } =  useAppContext();
+	let {access, queryFolder, setNames, folderNames, setCurrentFolder, subfolders } =  useAppContext();
 	let [loading, setLoading] =  useState(true);
 	let [showModal,setModal] = useState(false);
 
@@ -31,9 +32,9 @@ export default function Main(){
 
 	useEffect(()=>{
 	  
-		getFolders();
+		access && getFolders();
 
-	},[showModal])
+	},[showModal,access])
 
 	const title = {
 		color: colors.text,
@@ -67,13 +68,18 @@ export default function Main(){
 
 	return(<div className="main" style={main}>
 				<h2 style={{ color: 'white' }}>Save all your favourite web resources in one page!</h2>
-				<div className="box-container">
-				{loading && <ClipLoader color={colors.spinner} size={60} css='margin-top:150px;'/>}
-				{!loading && <Box create={false} onClick={handleCreate}/>}
-				{folderNames.map((value)=>{return <Box create = {true} name = {value} onClick = {queryFolder(value)}/>}) }
-				
-				</div>
-				{showModal && <Modal onClose = {handleClose} onCreate = {handleCreateFolder}/>}
+				{!access && <Login/>}
+				{access &&
+				<>
+					<div className="box-container">
+					{loading && <ClipLoader color={colors.spinner} size={60} css='margin-top:150px;'/>}
+					{!loading && <Box create={false} onClick={handleCreate}/>}
+					{folderNames.map((value)=>{return <Box create = {true} name = {value} onClick = {queryFolder(value)}/>}) }
+					
+					</div>
+					{showModal && <Modal onClose = {handleClose} onCreate = {handleCreateFolder}/>}
+				</>
+				}
 
 			</div>)
 }

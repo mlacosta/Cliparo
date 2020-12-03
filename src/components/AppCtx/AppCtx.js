@@ -18,6 +18,9 @@ export default function AppCtx({children}){
 	let [currentFolder, setCurrentFolder] = useState('');
 	let [folderNames, setNames] = useState([]);
 	let [links,setLinks] = useState([]);
+	let [googleResponse,setGoogleResponse] = useState(null);
+	let [clientId,setClientId] = useState(null);
+	let [access,setAccess] = useState(false);
 
 	const queryFolder =  (name)=>{	
 		return async ()=>{
@@ -61,7 +64,13 @@ export default function AppCtx({children}){
 					 folderNames,
 					 links,
 					 setLinks,
-					 getLinks}
+					 getLinks,
+					 googleResponse,
+					 setGoogleResponse,
+					 clientId,
+					 setClientId,
+					 access,
+					 setAccess}
 
 	return(<>
 				<AppContext.Provider value = {context}>

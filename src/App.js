@@ -1,11 +1,14 @@
-
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import AppCtx from './components/AppCtx/AppCtx';
 import Main from './components/Main/Main';
 import FolderView from './components/FolderView/FolderView';
 import { HashRouter as Router, Switch,Route,Link} from "react-router-dom";
 import background from './img/background_01.jpg';
+import Login from './components/Login/Login';
+
+
+
 
 function App() {
   
@@ -24,6 +27,8 @@ function App() {
   }
 
 
+
+
   return (
     <div className="app-wrapper" style = {style}>
       <Router>
@@ -40,7 +45,6 @@ function App() {
         </AppCtx>
       </Router> 
     </div>
-
 
   );
 }
