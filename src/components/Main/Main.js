@@ -74,7 +74,7 @@ export default function Main(){
 					<div className="box-container">
 					{loading && <ClipLoader color={colors.spinner} size={60} css='margin-top:150px;'/>}
 					{!loading && <Box create={false} onClick={handleCreate}/>}
-					{folderNames.map((value)=>{return <Box create = {true} name = {value} onClick = {queryFolder(value)}/>}) }
+					{!loading && folderNames.map((value)=>{return <Box create = {true} name = {value} onClick = {queryFolder(value)}/>}) }
 					
 					</div>
 					{showModal && <Modal onClose = {handleClose} onCreate = {handleCreateFolder}/>}

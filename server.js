@@ -11,8 +11,9 @@ const authRouter =  require('./api/auth');
 
 const PORT = process.env.PORT || 4000;
 
+const PASSWORD = "imperialiOS5andx";
 
-mongoose.connect('mongodb://localhost:27017/acmedb', {
+mongoose.connect( `mongodb+srv://mlacosta003:${PASSWORD}@cluster0.njyli.mongodb.net/Cliparo?retryWrites=true&w=majority`, {
   useNewUrlParser: true}).then(()=>{
 
     const app = express();
