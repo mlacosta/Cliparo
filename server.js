@@ -15,6 +15,9 @@ const PASSWORD = "imperialiOS5andx";
 
 mongoose.connect( `mongodb+srv://mlacosta003:${PASSWORD}@cluster0.njyli.mongodb.net/Cliparo?retryWrites=true&w=majority`, {useNewUrlParser: true})
   .then(()=>{
+
+    console.log('Connected to MongoDB Cloud')
+
     const app = express();
 
     app.use(bodyParser.json());
@@ -35,6 +38,7 @@ mongoose.connect( `mongodb+srv://mlacosta003:${PASSWORD}@cluster0.njyli.mongodb.
 
     if (process.env.NODE_ENV === 'production'){
       app.use(express.static('./build'));
+      console.log(`Using production version`);
     }
 
     app.listen(PORT,()=>{
