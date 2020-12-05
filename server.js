@@ -36,10 +36,11 @@ mongoose.connect( `mongodb+srv://mlacosta003:${PASSWORD}@cluster0.njyli.mongodb.
     app.use(errorHandler());
     
 
-    if (process.env.NODE_ENV === 'production'){
+    if (process.env.NODE_ENV == 'production'){
       app.use(express.static('./build'));
       console.log(`Using production version`);
     }
+
 
     app.listen(PORT,()=>{
         console.log(`Listening HERE:${PORT}`);
