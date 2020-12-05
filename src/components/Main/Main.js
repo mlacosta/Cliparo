@@ -17,7 +17,7 @@ let request = new Promise(
 export default function Main(){
 	const {colors} = useAppContext();
 
-	let {access, queryFolder, setNames, folderNames, setCurrentFolder, subfolders } =  useAppContext();
+	let {access, queryFolder, setNames, folderNames} =  useAppContext();
 	let [loading, setLoading] =  useState(true);
 	let [showModal,setModal] = useState(false);
 
@@ -45,7 +45,6 @@ export default function Main(){
 	}
 
 	const main = {
-		height:'100vh',
 		margin:0,
 		display:'flex',
 		

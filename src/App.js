@@ -8,8 +8,6 @@ import background from './img/background_01.jpg';
 import Login from './components/Login/Login';
 
 
-
-
 function App() {
   
   const title = {
@@ -25,8 +23,6 @@ function App() {
     backgroundImage:`url(${background})`,
     backgroundSize:'cover'  
   }
-
-
 
 
   return (
