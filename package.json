@@ -1,5 +1,5 @@
 {
-  "name": "frontend-monorepo",
+  "name": "cliparo",
   "version": "1.0.0",
   "main": "index.ts",
   "author": "mlacosta",
@@ -133,6 +133,6 @@
     "test": "jest --maxWorkers=50%",
     "test:watch": "jest --watch --maxWorkers=25%",
     "test:ci": "jest --runInBand",
-    "storybook:run": "yarn workspace @frontend-monorepo/storybook storybook"
+    "storybook:run": "yarn workspace @cliparo/storybook storybook"
   }
 }

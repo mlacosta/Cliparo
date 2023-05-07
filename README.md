@@ -10,10 +10,10 @@
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/mlacosta/frontend-monorepo-template
+$ git clone https://github.com/mlacosta/cliparo-template
 
 # Go into the repository
-$ cd frontend-monorepo-template
+$ cd cliparo-template
 
 # Install dependencies
 $ yarn install

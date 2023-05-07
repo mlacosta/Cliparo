@@ -1,9 +1,14 @@
 {
-  "name": "@frontend-monorepo/components",
+  "name": "@cliparo/components",
   "version": "1.0.0",
   "main": "index.js",
   "author": "mlacosta",
   "license": "MIT",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/server": "^11.10.0",
+    "@emotion/styled": "^11.10.5",
+    "@mui/material": "^5.11.6"
+  }
 }
