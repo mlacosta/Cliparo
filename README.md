@@ -1,29 +1,45 @@
-# Cliparo
-## A web APP to store web links into folders for future reference
+<h1 align="center">
+  <br>
+  Front-end Monorepo Template
+  <br>
+</h1>
 
-### Author: Mariano L. Acosta
+<h4 align="center">A typescript monorepo template for Front-End projects</h4>
 
-This project was created using the MERN stack (Mongodb, Express, React.js and Node.js)
+## Installation
 
-![image info](./cliparo-img/Cliparo.JPG)
+```bash
+# Clone this repository
+$ git clone https://github.com/mlacosta/frontend-monorepo-template
 
-## Instalation
+# Go into the repository
+$ cd frontend-monorepo-template
 
-Only the development version is available. In order to try this project on your own, you need to install mongodb on your local computer: https://docs.mongodb.com/manual/installation/
+# Install dependencies
+$ yarn install
+```
 
+## How to use
 
- First clone the repository, then install the dependencies:
+```bash
+# Run a package script
+$ yarn workspace @<your-project-name>/<package-name> <your-command>
+```
 
-`npm install`
+## Packages
 
-You need to run the express server first:
+This repo uses the following open source packages:
 
-`node server.js`
+- [Next.js](https://nextjs.org)
+- [Storybook](https://storybook.js.org/)
+- [Husky](typicode.github.io/husky)
+- [Prettier](https://www.npmjs.com/package/prettier)
+- [Jest](https://jestjs.io/)
 
-After that you are ready to use the application:
+## How to contribute
 
-`npm run start`
-
-# Usage
-
-![image info](./cliparo-img/Cliparo.JPG)
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/newFeature`)
+3. Commit your Changes (`git commit -m 'Add some newFeature'`)
+4. Push to the Branch (`git push origin feature/newFeature`)
+5. Open a Pull Request
